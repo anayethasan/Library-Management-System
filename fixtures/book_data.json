@@ -1,0 +1,254 @@
+[
+    {
+        "model": "books.author",
+        "pk": 1,
+        "fields": {
+            "name": "George Orwell",
+            "biography": "English novelist and essayist, known for his works on democratic socialism.",
+            "created_at": "2025-01-20T10:00:00.000000"
+        }
+    },
+    {
+        "model": "books.author",
+        "pk": 2,
+        "fields": {
+            "name": "J.K. Rowling",
+            "biography": "British author, best known for the Harry Potter fantasy series.",
+            "created_at": "2025-01-21T11:00:00.000000"
+        }
+    },
+    {
+        "model": "books.author",
+        "pk": 3,
+        "fields": {
+            "name": "Yuval Noah Harari",
+            "biography": "Israeli historian and author of Sapiens and Homo Deus.",
+            "created_at": "2025-01-22T09:00:00.000000"
+        }
+    },
+    {
+        "model": "books.author",
+        "pk": 4,
+        "fields": {
+            "name": "Agatha Christie",
+            "biography": "English writer known for her detective novels featuring Hercule Poirot.",
+            "created_at": "2025-01-23T08:30:00.000000"
+        }
+    },
+    {
+        "model": "books.author",
+        "pk": 5,
+        "fields": {
+            "name": "Stephen Hawking",
+            "biography": "Theoretical physicist and cosmologist, author of A Brief History of Time.",
+            "created_at": "2025-01-24T14:00:00.000000"
+        }
+    },
+    {
+        "model": "books.author",
+        "pk": 6,
+        "fields": {
+            "name": "Haruki Murakami",
+            "biography": "Japanese writer known for his surrealist fiction and magical realism.",
+            "created_at": "2025-01-25T12:00:00.000000"
+        }
+    },
+    {
+        "model": "books.author",
+        "pk": 7,
+        "fields": {
+            "name": "Mark Twain",
+            "biography": "American writer famous for The Adventures of Tom Sawyer.",
+            "created_at": "2025-01-26T10:30:00.000000"
+        }
+    },
+    {
+        "model": "books.author",
+        "pk": 8,
+        "fields": {
+            "name": "Isabel Allende",
+            "biography": "Chilean-American author known for her rich storytelling and magical realism.",
+            "created_at": "2025-01-27T09:45:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 1,
+        "fields": {
+            "title": "1984",
+            "isbn": "9780451524935",
+            "category": "fiction",
+            "available": true,
+            "author": 1,
+            "created_at": "2025-01-28T10:00:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 2,
+        "fields": {
+            "title": "Animal Farm",
+            "isbn": "9780451526342",
+            "category": "fiction",
+            "available": true,
+            "author": 1,
+            "created_at": "2025-01-29T10:00:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 3,
+        "fields": {
+            "title": "Harry Potter and the Philosopher's Stone",
+            "isbn": "9780747532699",
+            "category": "fantasy",
+            "available": true,
+            "author": 2,
+            "created_at": "2025-01-30T11:00:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 4,
+        "fields": {
+            "title": "Harry Potter and the Chamber of Secrets",
+            "isbn": "9780747538493",
+            "category": "fantasy",
+            "available": false,
+            "author": 2,
+            "created_at": "2025-01-31T11:00:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 5,
+        "fields": {
+            "title": "Sapiens: A Brief History of Humankind",
+            "isbn": "9780062316097",
+            "category": "history",
+            "available": true,
+            "author": 3,
+            "created_at": "2025-02-01T09:00:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 6,
+        "fields": {
+            "title": "Homo Deus",
+            "isbn": "9780062464316",
+            "category": "science",
+            "available": false,
+            "author": 3,
+            "created_at": "2025-02-02T09:00:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 7,
+        "fields": {
+            "title": "Murder on the Orient Express",
+            "isbn": "9780062693662",
+            "category": "mystery",
+            "available": true,
+            "author": 4,
+            "created_at": "2025-02-03T08:30:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 8,
+        "fields": {
+            "title": "And Then There Were None",
+            "isbn": "9780062073488",
+            "category": "mystery",
+            "available": true,
+            "author": 4,
+            "created_at": "2025-02-04T08:30:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 9,
+        "fields": {
+            "title": "A Brief History of Time",
+            "isbn": "9780553380163",
+            "category": "science",
+            "available": true,
+            "author": 5,
+            "created_at": "2025-02-05T14:00:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 10,
+        "fields": {
+            "title": "The Universe in a Nutshell",
+            "isbn": "9780553802023",
+            "category": "science",
+            "available": false,
+            "author": 5,
+            "created_at": "2025-02-06T14:00:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 11,
+        "fields": {
+            "title": "Norwegian Wood",
+            "isbn": "9780375704024",
+            "category": "fiction",
+            "available": true,
+            "author": 6,
+            "created_at": "2025-02-07T12:00:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 12,
+        "fields": {
+            "title": "Kafka on the Shore",
+            "isbn": "9781400079278",
+            "category": "fiction",
+            "available": true,
+            "author": 6,
+            "created_at": "2025-02-08T12:00:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 13,
+        "fields": {
+            "title": "The Adventures of Tom Sawyer",
+            "isbn": "9780143039563",
+            "category": "fiction",
+            "available": true,
+            "author": 7,
+            "created_at": "2025-02-09T10:30:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 14,
+        "fields": {
+            "title": "Adventures of Huckleberry Finn",
+            "isbn": "9780143107323",
+            "category": "fiction",
+            "available": false,
+            "author": 7,
+            "created_at": "2025-02-10T10:30:00.000000"
+        }
+    },
+    {
+        "model": "books.book",
+        "pk": 15,
+        "fields": {
+            "title": "The House of the Spirits",
+            "isbn": "9781501117015",
+            "category": "fiction",
+            "available": true,
+            "author": 8,
+            "created_at": "2025-02-11T09:45:00.000000"
+        }
+    }
+]
