@@ -1,16 +1,8 @@
 from django.db import models
-from users.models import User
+from cloudinary.models import CloudinaryField
+from books.validators import validate_file_size
+from member.models import Member
 
-class Member(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='member_profile')
-    membership_data = models.DateField(auto_now_add=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    
-    def __str__(self):
-        return f"{self.user.email}"
-    
-    class Meta:
-        ordering = ["user__email"]
         
 class Author(models.Model):
     name = models.CharField(max_length=250)
@@ -50,6 +42,10 @@ class Book(models.Model):
     
     class Meta:
         ordering = ["title"]
+        
+class BookImage(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='image')
+    image = CloudinaryField('image', validators=[validate_file_size])
         
 class BorrowRecord(models.Model):
     STATUS_CHOICES = [

@@ -1,21 +1,30 @@
 from rest_framework import serializers
 from decimal import Decimal
-from books.models import Author, Book, BorrowRecord, Member
+from books.models import Author, Book, BorrowRecord, Member, BookImage
 
-class BookSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Book
-        fields = ['id', 'title', 'isbn', 'category', 'available', 'author', 'created_at', 'total_borrow_book']
-        
-    total_borrow_book = serializers.SerializerMethodField(
-        method_name='calculate_borrow_book')
+class BookImageSerializer(serializers.ModelSerializer):
     
-    def calculate_borrow_book(self, book):
-           return book.borrow_records.filter(status='borrowed').count()
+    image = serializers.ImageField()
+    class Meta:
+        model = BookImage
+        fields = ['id', 'image']
        
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
         fields = ['id', 'name', 'biography', 'created_at']
-        
+               
+class BookSerializer(serializers.ModelSerializer):
+    image = BookImageSerializer(many=True, read_only=True)
+    author = AuthorSerializer(read_only=True)
+    total_borrow_book = serializers.IntegerField(read_only=True)
+
+    class Meta:
+        model = Book
+        fields = [
+            'id', 'title', 'isbn', 'category', 
+            'available', 'image', 'author', 
+            'created_at', 'total_borrow_book'
+        ]
+
 
