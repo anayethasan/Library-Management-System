@@ -1,4 +1,4 @@
-from books.models import Book, Author, BorrowRecord, Member, BookImage
+from books.models import Book, Author, BookImage
 from django.db.models import Q, Count
 from books.serializers import BookSerializer, AuthorSerializer
 from rest_framework.viewsets import ModelViewSet

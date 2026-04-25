@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from decimal import Decimal
-from books.models import Author, Book, BorrowRecord, Member, BookImage
+from books.models import Author, Book, BookImage
 
 class BookImageSerializer(serializers.ModelSerializer):
     
