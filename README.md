@@ -14,7 +14,7 @@ A RESTful backend API for managing books, authors, members, and borrowing activi
 | **Swagger UI** | [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/) |
 | **ReDoc** | [http://127.0.0.1:8000/redoc/](http://127.0.0.1:8000/redoc/) |
 | **License** | BSD License |
-| **Contact** | [contact@phimart.com](mailto:contact@phimart.com) |
+| **Contact** | [contact@librarymanagementsystem.com](mailto:contact@librarymanagementsystem.com) |
 | **Terms** | [Terms of Service](https://www.google.com/policies/terms/) |
 
 ---
