@@ -12,11 +12,32 @@ from borrow.services import BorrowService
 
 class BorrowRecordViewSet(ModelViewSet):
     """
-    GET/api/borrow/— him self or if admin you can see all borrow list 
-    POST/api/borrow/— do borrow book
-    GET/api/borrow/<id>/— specific record
-    POST/api/borrow/<id>/return/  — do return book base on this id
-    DELETE /api/borrow/<id>/— only for Librarian/admin
+    Manages borrowing and returning of library books.
+ 
+    list:
+        Returns borrow records. Members see only their own records;
+        Librarians/Admins see all records.
+ 
+    create:
+        Borrow a book. Requires the user to be a registered member.
+        Payload: { "book": <id>, "due_date": "YYYY-MM-DD" }
+        - Book must be available.
+        - Due date must be in the future.
+        - A member cannot borrow the same book twice simultaneously.
+ 
+    retrieve:
+        Returns a specific borrow record by ID.
+        Members can only retrieve their own records.
+ 
+    return_book:
+        POST /api/borrow/<id>/return/
+        Marks a borrowed book as returned.
+        Calculates and records any late fee (20 BDT/day after due date).
+        Members can only return their own borrowed books.
+ 
+    destroy:
+        DELETE /api/borrow/<id>/
+        Permanently deletes a borrow record. Restricted to Librarians/Admins only.
     """
     permission_classes = [IsAuthenticated]
     http_method_names = ['get', 'post', 'delete']

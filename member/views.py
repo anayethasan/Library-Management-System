@@ -6,6 +6,30 @@ from member import serializers as sz
 
 
 class MemberViewSet(ModelViewSet):
+    """
+    Manages library members.
+ 
+    list:
+        Returns all members. Restricted to Librarians/Admins only.
+ 
+    create:
+        Register the currently authenticated user as a library member.
+        Any authenticated user can register themselves as a member.
+        A user cannot register as a member more than once.
+ 
+    retrieve:
+        Returns a specific member's profile.
+        Members can only retrieve their own profile.
+        Librarians/Admins can retrieve any member's profile.
+ 
+    update / partial_update:
+        Update member profile info (name, phone, address).
+        Members can only update their own profile.
+        Librarians/Admins can update any profile.
+ 
+    destroy:
+        Delete a member. Restricted to Librarians/Admins only.
+    """
     
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
     
@@ -50,7 +74,10 @@ class MemberViewSet(ModelViewSet):
         return obj
     
     def destroy(self, request, *args, **kwargs):
-        """shudu librarian delete korar access pabe"""
+        """
+        DELETE /api/members/<id>/
+        Restricted to Librarians/Admins only.
+        """
         if not request.user.is_staff:
             raise PermissionDenied("Only Librarian can delete members.")
         return super().destroy(request, *args, **kwargs)
