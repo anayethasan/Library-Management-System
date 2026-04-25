@@ -34,12 +34,16 @@ class MemberViewSet(ModelViewSet):
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
     
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False):
+            return Member.objects.none()
+        
         user = self.request.user
         #jodi se librarian or admin hoy tahole se sob dekhte parbe
         if user.is_staff:
             return Member.objects.select_related('user').all()
         #oi member shudu nijer data dekhte parbe 
         return Member.objects.select_related('user').filter(user=user)
+    
     
     def get_serializer_class(self):
         if self.action == "create":

@@ -43,9 +43,11 @@ class BorrowRecordViewSet(ModelViewSet):
     http_method_names = ['get', 'post', 'delete']
 
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False):
+            return BorrowRecord.objects.none()
+        
         user = self.request.user
         qs = BorrowRecord.objects.select_related('member__user', 'book')
-
         if user.is_staff:
             return qs.all()
         return qs.filter(member__user=user)
